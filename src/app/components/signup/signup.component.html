@@ -1,0 +1,153 @@
+  <!-- <div class="blue_bg">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2>SIGNUP</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div> -->
+ <section class="banner_main">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8">
+            <div class="text-bg">
+               <h1> <span class="blodark"> Dark Store </span> <br>
+                   <span style="padding-left: 100px;">Signup</span> </h1>
+               
+               
+            </div>
+         </div>
+         
+      </div>
+   </div>
+ </section>
+  <div id="contact" class="contact" style="padding-bottom:40px ;">
+    <div class="con_bg">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-10 offset-md-1">
+                <form id="request" class="main_form" [formGroup]="signupForm">
+                   <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                         <input class="contactus" formControlName="firstName" placeholder="First Name" type="text" name="firstName"> 
+                      
+                      <div *ngIf="signupForm.controls['firstName'].invalid && 
+                      (signupForm.controls['firstName'].touched ||
+                      signupForm.controls['firstName'].dirty
+                      )">
+                       <div *ngIf="signupForm.controls['firstName'].errors.required" style="color: red;"> First Name is required</div>
+                       <div *ngIf="signupForm.controls['firstName'].errors.minlength" style="color: red;">First Name must have at least 3 chars</div> 
+                     </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                        <input class="contactus" formControlName="lastName" placeholder="Last Name" type="text" name="lastName"> 
+                        <div *ngIf="signupForm.controls['lastName'].invalid &&(
+                           signupForm.controls['lastName'].touched || 
+                           signupForm.controls['lastName'].dirty
+                         )">
+                           <div *ngIf="signupForm.controls['lastName'].errors.required" style="color:red ;">
+                             Last Name is required
+                           </div>
+                           <div *ngIf="signupForm.controls['lastName'].errors.minlength" style="color:red ;">
+                             Last Name must have at least 5 chars
+                           </div>
+                         </div>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <input class="contactus" formControlName="email" placeholder="Email" type="email" name="email">                          
+                        <div *ngIf="signupForm.controls['email'].invalid &&(
+                           signupForm.controls['email'].touched || 
+                           signupForm.controls['email'].dirty
+                         )">
+                           <div *ngIf="signupForm.controls['email'].errors.required" style="color:red ;">
+                             Email is required
+                           </div>
+                           <div *ngIf="signupForm.controls['email'].errors.email" style="color:red ;">
+                             Invalid Email Format
+                           </div>
+                         </div>
+                     </div>
+                      <div class="col-md-6 col-sm-6">
+                         <input class="contactus" formControlName="phoneNumber" placeholder="Phone Number" type="number" name="phoneNumber"> 
+                         <div *ngIf="signupForm.controls['phoneNumber'].invalid &&(
+                           signupForm.controls['phoneNumber'].touched || 
+                           signupForm.controls['phoneNumber'].dirty
+                         )">
+                           <div *ngIf="signupForm.controls['phoneNumber'].errors.required" style="color:red ;">
+                             Phone number is required
+                           </div>
+                           <div *ngIf="signupForm.controls['phoneNumber'].errors.pattern" style="color:red ;">
+                             Invalid Phone number Format
+                           </div>
+                         </div>
+                        </div>
+                      <div class="col-md-6 col-sm-6">
+                        <input class="contactus" formControlName="pwd" placeholder="Password" type="password" name="pwd"> 
+                        <div *ngIf="signupForm.controls['pwd'].invalid &&(
+                           signupForm.controls['pwd'].touched || 
+                           signupForm.controls['pwd'].dirty
+                         )">
+                           <div *ngIf="signupForm.controls['pwd'].errors.required" style="color:red ;">
+                             Password is required
+                           </div>
+                           <div *ngIf="signupForm.controls['pwd'].errors.maxlength" style="color:red ;">
+                             Password must have at most 12 chars
+                           </div>
+                           <div *ngIf="signupForm.controls['pwd'].errors.minlength" style="color:red ;">
+                             Password must have at least 6 chars
+                           </div>
+                         </div>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <input class="contactus" formControlName="confirmPwd" placeholder="Confirm Password" type="password" name="confirmPwd"> 
+                        <div *ngIf="signupForm.controls['confirmPwd'].invalid &&(
+                          signupForm.controls['confirmPwd'].touched || 
+                          signupForm.controls['confirmPwd'].dirty
+                        )">
+                        <div *ngIf="signupForm.controls['confirmPwd'].errors.confirmError" style="color:red ;">
+                          Confirm Password does not match Password
+                        </div>
+                         </div>
+                      </div>
+                     
+                      
+                      <div class="col-md-12 col-sm-6">
+                         <input class="contactus" formControlName="address" placeholder="Address" type="text" name="address">
+                         <div *ngIf="signupForm.controls['address'].invalid &&(
+                           signupForm.controls['address'].touched || 
+                           signupForm.controls['address'].dirty
+                         )">
+                           <div *ngIf="signupForm.controls['address'].errors.required" style="color:red ;">
+                             Address is required
+                           </div>
+                           <div *ngIf="signupForm.controls['address'].errors.minlength" style="color:red ;">
+                             Address must have at least 3 chars
+                           </div>
+                         </div>                          
+                      </div>
+                      <div class="text-center"style="margin-left:380px">
+                        <button type="button" class="btn btn-success" (click)="filePicker.click()">
+                          Select Your Avatar
+                         
+                        </button>
+                        <div class="text-center">
+                          <img [src]="imagePreview" alt="" width="250px" style="padding-top: 40px;">
+                         </div>
+                      </div>
+                      <div class="form-group" style="visibility: hidden ;">
+                        <input type="file" class="form-control" #filePicker (change)='onImageSelected($event)'>
+                      </div>
+                     
+                      <div class="col-md-12" >
+                         <button class="send_btn" (click)="signup()" >Signup</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

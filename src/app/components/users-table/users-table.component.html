@@ -1,0 +1,45 @@
+<div  class="header_bottom">
+  <div  class="container" >
+     <form action="/action_page.php">
+        <input class="form_sea" type="text" [(ngModel)]='term' name="term" placeholder="Search" name="search">
+        <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
+     </form>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">_id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of pageOfItems| myFilter:term">
+      <td>{{user._id}}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.address }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      <td>
+        <button type="button" class="btn btn-info" style="margin: 20px">
+          Display
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteUser(user._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="margin-left:70% ;">
+  <jw-pagination [items]="users" (changePage)="onChangePage($event)"[pageSize]="5"></jw-pagination>
+
+</div>

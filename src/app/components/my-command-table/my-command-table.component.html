@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name Article</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Status</th>
+      <th scope="col">Name Vendor</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.publication.nameArticle }}</td>
+      <td>{{ order.publication.description }}</td>
+      <td>{{ order.publication.prix }}</td>
+      <td>{{ order.publication.etat }}</td>
+      <td>{{ order.publication.qty }}</td>
+      <td [ngStyle]="{ color: statusColor(order.status) }">
+        {{ order.status }}
+      </td>
+      <td>{{ order.userVendor.firstName }} {{ order.userVendor.lastName }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteOrder(order._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

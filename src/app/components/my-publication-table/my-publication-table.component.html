@@ -1,0 +1,35 @@
+<table class="table table-striped" >
+    <thead>
+      <tr>
+        <th scope="col">_id</th>
+        <th scope="col">Name Article</th>
+        <th scope="col">Description</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Etat</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pub of publication">
+        <td>{{pub._id}}</td>
+        <td>{{pub.nameArticle}} </td>
+        <td>{{pub.description}}</td>
+        <td>{{pub.prix}}</td>
+        <td>{{pub.etat}}</td>
+        <td>{{pub.qty}}</td>
+        <td [ngStyle]="{'color':statusColor(pub.status)}">{{pub.status}}</td>
+        
+        <td>
+            <button type="button" class="btn btn-info" (click)="goToDisplay(pub._id)">Display</button>
+            <button type="button" class="btn btn-primary" (click)="goToEdit(pub._id)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="delete(pub._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+

@@ -1,0 +1,27 @@
+<table class="table table-striped" style="padding-bottom:50px ;">
+    <thead>
+      <tr>
+        <th scope="col">_id</th>
+        <th scope="col">Name Article</th>
+        <th scope="col">Name buyer</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order  of orders">
+        <td>{{order._id}}</td>
+        <td>{{order.publication.nameArticle}} </td>
+        <td>{{order.user.firstName}}</td>
+        <td>{{order.user.phoneNumber}}</td>
+        <td [ngStyle]="{'color':statusColor(order.status)}">{{order.status}}</td>
+        <td>
+            <button type="button" class="btn btn-success" (click)="confirmOrder(order)">Confirm</button>
+            <button type="button" class="btn btn-danger" (click)="refuseOrder(order._id)">Refuse</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

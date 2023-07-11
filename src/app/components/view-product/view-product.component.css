@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700|PT+Serif&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
+  background-color: #fafaf9;
+}
+.fluid__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.fluid__container::before, 
+.fluid__container::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: 1;
+}
+.fluid__container::before {
+  border-top: 380px solid #176ce8;
+  border-right: 380px solid transparent;
+  top: 0;
+  left: 0;
+} 
+.fluid__container::after {
+  border-bottom: 100px solid #414142;
+  border-left: 100px solid transparent;
+  bottom: 0;
+  right: 0;
+}
+.fluid__container .inner__container {
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  width: 700px;
+  height: 380px;
+  background: #125dcc;
+  background: linear-gradient(60deg, #125dcc 0%, #229bf4 79%);
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.4);
+}
+.fluid__container .inner__container .text {
+  display: block;
+  width: 100%;
+  transform: translate(-30px, -50px);
+  color: #ffffff;
+}
+.fluid__container .inner__container .text h1, 
+.fluid__container .inner__container .text h6 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.fluid__container .inner__container .text h1 {
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+.fluid__container .inner__container .text h6 {
+  font-weight: 500;
+  margin: 0;
+}
+.fluid__container .inner__container .text p {
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.8;
+}
+.fluid__container .inner__container .image__product {
+  display: block;
+  width: 400px;
+  height: 400px;
+  transform: translateY(-50px);
+  position: relative;
+  overflow: visible;
+}
+/*  */
+.fluid__container .inner__container .image__product img {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}
+.fluid__container .inner__container .close__btn {
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: inherit;
+  overflow: hidden;
+  cursor: pointer;
+}
+.fluid__container .inner__container .close__btn img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}
+.fluid__container .inner__container .cta__buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 660px;
+  height: 90px;
+  background: #ffffff;
+  z-index: -1;
+  overflow: hidden;
+}
+.fluid__container .inner__container .cta__buttons button {
+  margin: 0 20px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: .7rem;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 180px;
+  text-transform: uppercase;
+}
+.fluid__container .inner__container .cta__buttons button.btn__primary {
+  background: #414142;
+  color: #ffffff;
+}
+.fluid__container .inner__container .cta__buttons button.btn__outline {
+  background: transparent;
+  border: 1px solid rgba(146, 151, 161, 0.7);
+  width: 200px;
+}
+
+@media screen and (max-width: 576px) {
+  .fluid__container {
+    overflow-y: auto;
+  }
+  .fluid__container .inner__container {
+    width: 90%;
+    height: 90%;
+  }
+  .fluid__container .inner__container .image__product {
+    width: 200px;
+    height: 200px;
+    transform: translateY(0);
+  }
+  .fluid__container .inner__container .text {
+    transform: translateY(0);
+  }
+  .fluid__container .inner__container .cta__buttons {
+    width: 90%;
+    height: auto;
+    justify-content: space-between;
+    background: transparent;
+  }
+  .fluid__container .inner__container .cta__buttons button {
+    margin: 0;
+  }
+  .fluid__container .inner__container .cta__buttons button.btn__outline {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+
+  

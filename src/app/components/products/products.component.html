@@ -1,0 +1,38 @@
+<section class="banner_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <div class="text-bg">
+                <h1> <span class="blodark"> Dark Store </span> <br>
+                    <span style="padding-left: 100px;">Products</span> </h1>
+                
+                
+             </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ban_img">
+                <!-- <figure><img src="assets/images/ban_img.png" alt="#"/></figure> -->
+             </div>
+          </div>
+       </div>
+    </div>
+  </section>
+  <div  class="header_bottom">
+   <div  class="container" >
+      <form action="/action_page.php">
+         <input class="form_sea" type="text" [(ngModel)]='term' name="term" placeholder="Search" name="search">
+         <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
+      </form>
+   </div>
+</div>
+  <div id="project" class="project">
+   <div class="container">
+      
+      <div class="row">
+      <div class="product_main" *ngFor="let p of products| myFilter:term">
+         <app-product [productInput]="p"></app-product> 
+      </div>
+      </div>
+   </div>
+ </div>
+  

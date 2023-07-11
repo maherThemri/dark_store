@@ -1,0 +1,35 @@
+<section class="banner_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <div class="text-bg">
+                <h1> <span class="blodark"> Dark Store </span> <br>
+                    <span style="padding-left: 100px;">Product Information</span> </h1>
+                
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+  
+<div class="fluid__container">
+  <div class="inner__container">
+    <div class="text">
+      <h1>{{ product.nameArticle }}</h1><br>
+      <h2>Description:</h2> <hr>
+      <p>
+        {{ product.description }}
+      </p>
+      <h2>Price: {{ product.prix }} DT</h2>
+      <h3>Quantity: {{ product.qty }}</h3>
+    </div>
+    <div class="image__product">
+      <img [src]="product.avatar" alt="amazon echo" title="amazon echo" />
+    </div>
+    <div class="cta__buttons">
+      <button class="btn__primary"style="margin-right: 5px; background-color: #f2c119"(click)="addOrder(product._id)">Commander</button>
+    </div>
+  </div>
+</div>
+</section>

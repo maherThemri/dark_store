@@ -1,0 +1,98 @@
+<section class="banner_main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="text-bg">
+          <h1>
+            <span class="blodark"> Dark Store </span> <br />
+            <span style="padding-left: 100px">Login</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="contact" class="contact" style="padding-bottom: 40px">
+  <div class="con_bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <form id="request" class="main_form" [formGroup]="loginForm">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <input
+                  class="contactus"
+                  formControlName="email"
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                />
+                <div
+                  *ngIf="
+                    loginForm.controls['email'].invalid &&
+                    (loginForm.controls['email'].touched ||
+                      loginForm.controls['email'].dirty)
+                  "
+                >
+                  <div
+                    *ngIf="loginForm.controls['email'].errors.required"
+                    style="color: red"
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    *ngIf="loginForm.controls['email'].errors.email"
+                    style="color: red"
+                  >
+                    Invalid Email Format
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6">
+                <input
+                  class="contactus"
+                  formControlName="pwd"
+                  placeholder="Password"
+                  type="password"
+                  name="pwd"
+                />
+                <div
+                  *ngIf="
+                    loginForm.controls['pwd'].invalid &&
+                    (loginForm.controls['pwd'].touched ||
+                      loginForm.controls['pwd'].dirty)
+                  "
+                >
+                  <div
+                    *ngIf="loginForm.controls['pwd'].errors.required"
+                    style="color: red"
+                  >
+                    Password is required
+                  </div>
+                  <div
+                    *ngIf="loginForm.controls['pwd'].errors.maxlength"
+                    style="color: red"
+                  >
+                    Password must have at most 12 chars
+                  </div>
+                  <div
+                    *ngIf="loginForm.controls['pwd'].errors.minlength"
+                    style="color: red"
+                  >
+                    Password must have at least 6 chars
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <button class="send_btn" (click)="loginUser()">Login</button>
+              </div>
+              <span style="color: red">{{ errorMsg }}</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

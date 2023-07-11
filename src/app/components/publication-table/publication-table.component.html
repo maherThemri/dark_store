@@ -1,0 +1,152 @@
+
+  <div  class="header_bottom">
+    <div  class="container" >
+       <form action="/action_page.php">
+          <input class="form_sea" type="text" [(ngModel)]='term' name="term" placeholder="Search" name="search">
+          <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
+       </form>
+    </div>
+ </div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">_id</th>
+      <th scope="col">Name Article</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Status</th>
+      <th scope="col">Name User</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pub of pageOfItems| myFilter:term">
+      <td>{{ pub._id }}</td>
+      <td>{{ pub.nameArticle }}</td>
+      <td>{{ pub.description | removeExtraSpaces }}</td>
+      <td>{{ pub.prix }} DT</td>
+      <td>{{ pub.etat }}</td>
+      <td>{{ pub.qty }}</td>
+      <td [ngStyle]="{'color':statusColor(pub.status)}">{{ pub.status }}</td>
+      <td>{{ pub.user[0]?.firstName }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          (click)="goToDisplay(pub._id)"
+        >
+          Display 
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deletePublication(pub._id)"
+        >
+          delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="margin-left:70% ;">
+  <jw-pagination [items]="publications" (changePage)="onChangePage($event)"[pageSize]="5"></jw-pagination>
+
+</div>
+
+<!-- Button trigger modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Display Publication</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="contact" class="contact" style="margin-top: 10px">
+          <div class="con_bg">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <form
+                    id="request"
+                    class="main_form"
+                    #publicationForm="ngForm"
+                    (ngSubmit)="confirmPublication()"
+                  >
+                    <div class="row">
+                      <div class="text-center" style="padding: 20px">
+                        <img [src]=" publication.avatar " alt="" />
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                        <input
+                          class="contactus"
+                          [(ngModel)]="publication.nameArticle"
+                          placeholder="Name Article"
+                          type="text"
+                          name="nameArticle"
+                        />
+                      </div>
+
+                      <div class="col-md-6 col-sm-6">
+                        <input
+                          class="contactus"
+                          [(ngModel)]="publication.etat"
+                          placeholder="Etat"
+                          type="text"
+                          name="etat"
+                        />
+                      </div>
+
+                      <div class="col-md-12">
+                        <input
+                          class="contactusmess"
+                          [(ngModel)]="publication.description"
+                          placeholder="Description"
+                          type="text"
+                          name="description"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="confirmPublication()"
+          
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->

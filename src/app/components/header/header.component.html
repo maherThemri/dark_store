@@ -1,0 +1,87 @@
+<header>
+  <div class="header">
+    <div class="header_bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+            <nav class="navigation navbar navbar-expand-md navbar-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" routerLink="">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="products">Products</a>
+                  </li>
+                  <li class="nav-item submenu dropdown">
+                    <a *ngIf="userIsAuthenticated && connectedUser=='client'" routerLink="mySpace"
+                      class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                      aria-expanded="false">My Space</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="myPublication" style="color: black">My Publication</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="myCommand" style="color: black">My Command</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="addPublication" style="color: black">Add Publication</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item">
+                    <a *ngIf="userIsAuthenticated && connectedUser=='admin'" class="nav-link"
+                      routerLink="admin">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a *ngIf="userIsAuthenticated" class="nav-link" routerLink="profile">profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a *ngIf="!userIsAuthenticated" class="nav-link" routerLink="subscription">Signup</a>
+                  </li>
+                  <li class="nav-item">
+                    <a *ngIf="!userIsAuthenticated" class="nav-link" routerLink="login">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="#" (click)="onLogOut()" *ngIf="userIsAuthenticated">Deconnexion</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- <header>
+   <h3>darkStore</h3>
+
+   <input type="checkbox" id="menuBar">
+   <label for="menuBar">Menu</label>
+
+   <nav class="navbar">
+       <ul>
+           <li><a href="#">Home</a></li>
+           <li><a href="#">About</a></li>
+           <li><a href="#">Blog</a></li>
+           <li><a href="#">Courses</a></li>
+           <li><a href="#">Login</a></li>
+           <li><a href="#">Signup</a>
+           <ul>
+               <li><a href="#">Student</a></li>
+               <li><a href="#">Professor</a></li>
+               <li><a href="#">Admin</a></li>
+           </ul>
+           </li>
+           <li><a href="#">Contact</a></li>
+       </ul>
+
+   </nav>
+</header> -->

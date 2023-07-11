@@ -1,0 +1,60 @@
+ <section class="banner_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-8">
+             <div class="text-bg">
+                <h1> <span class="blodark"> Dark Store </span> <br>
+                    <span style="padding-left: 100px;">Add Publication</span> </h1>
+                
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+  </section>
+   <div id="contact" class="contact" style="padding-bottom:40px ;">
+     <div class="con_bg">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-10 offset-md-1">
+                 <form id="request" class="main_form" #publicationForm="ngForm" (ngSubmit)="sendPublication()">
+                    <div class="row">
+                       <div class="col-md-6 col-sm-6">
+                          <input class="contactus" [(ngModel)]="publication.nameArticle" placeholder="Name Article" type="text" name="nameArticle"> 
+                       </div>
+                       <div class="col-md-6 col-sm-6">
+                         <input class="contactus" [(ngModel)]="publication.prix" placeholder="Prix" type="number" name="prix"> 
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                         <input class="contactus" [(ngModel)]="publication.etat" placeholder="Etat" type="text" name="etat">                          
+                      </div>
+                       <div class="col-md-6 col-sm-6">
+                          <input class="contactus" [(ngModel)]="publication.qty" placeholder="Quantity" type="number" name="qty"> 
+                       </div>
+                       <div class="col-md-12">
+                        <input class="contactusmess" [(ngModel)]="publication.description" placeholder="Description" type="text" name="description">
+                     </div>
+                     <div class="text-center"style="margin-left:380px">
+                        <button type="button" class="btn btn-success" (click)="filePicker.click()">
+                          Select Your Avatar
+                         
+                        </button>
+                        <div class="text-center">
+                          <img [src]="imagePreview" alt="" width="250px" style="padding-top: 40px;">
+                         </div>
+                      </div>
+                      <div class="form-group" style="visibility: hidden ;">
+                        <input type="file" class="form-control" #filePicker (change)='onImageSelected($event)'>
+                      </div>
+                      
+                       <div class="col-md-12" >
+                          <button class="send_btn" >Send</button>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>

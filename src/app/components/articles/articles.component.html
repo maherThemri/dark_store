@@ -1,0 +1,25 @@
+<div id="project" class="project">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="titlepage">
+          <h2>Featured Products</h2>
+        </div>
+      </div>
+    </div>
+    <div  class="header_bottom">
+      <div  class="container" >
+         <form action="/action_page.php">
+            <input class="form_sea" type="text" [(ngModel)]='term' name="term" placeholder="Search" name="search">
+            <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
+         </form>
+      </div>
+   </div>
+
+    <div class="row" style="padding-top: 20px;padding-bottom: 40px;">
+      <div class="product_main" *ngFor="let p of products| myFilter:term">
+        <app-product [productInput]="p"></app-product>
+      </div>
+    </div>
+  </div>
+</div>
